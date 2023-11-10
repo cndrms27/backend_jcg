@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js09_String객체</title>
+<script type="text/javascript">
+	function strTest01(){
+		let string01="string";
+		let string02="test";
+		
+		//+연산자사용
+		let string03="string"+"test";
+		console.log(string01+","+string02);
+		
+		//concat():여러문자열을 하나의 문자열로 합칠 때 사용
+		var newString="String".concat("test","java","script","test");
+		console.log(newString);
+		
+		//배열객체의 메서드 join():특정값을 배열요소 사이에 추가해서 문자열로 반환
+		var joinTest=["1","2","3","4"].join("+") ;// json{key:value}
+		console.log(eval(joinTest));
+	}
+	
+	function strTest02(){
+		//다른 자료형을 문자열로 변환한 다음 더한다. +연산할 때 일어남
+		var numVal=12.7;//숫자형(실수형)
+		var bool=true;//boolean형
+		var str="숫자:"+numVal+"불린:"+bool;//문자열+숫자+문자열+불린형
+		console.log(typeof str);
+	}
+	
+	function strTest03(){
+		//동등연산자 == , 문자열 패턴(match())
+		var strVal=prompt("당신의 이름은?","");
+		var span=document.getElementById("content");// span{id:"content"}
+		
+		
+		//strVal에 숫자가 포함되는 확인  
+		if(strVal.match(/[0-9]/)){
+			alert("숫자가 포함되어 있어~~ 잘좀 확인해서 이름을 입력해줘");
+		}else{
+			if(strVal=="한경"){
+				console.log("한경입니다.");
+				span.textContent=strVal+"님 환영합니다.";
+			}else{
+				console.log('한경이 아닙니다.');
+				span.innerHTML=`<strong>${strVal}님은 한경이 아닙니다.</strong>`;
+			}			
+		}
+	}
+	
+	function strTest03_2(){
+		//대소문자를 구분한다. --> 대소문자 구별없이 비교
+		//toUpperCase(), toLowerCase() : 모두 대문자,소문자로 변환
+		
+		var strVal="String";
+		
+		if(strVal.toUpperCase()=="STRING"){
+			console.log("대문자 변환해서 비교");
+		}else{
+			console.log("값이 다르다");
+		}
+		
+		//동등연산자를 사용하면, 비교하는 자료형도 자동형변환이 된다.
+		var numVal=10;//숫자형
+		if(numVal=="10"){
+			alert("==연산자사용:숫자10이 맞습니다.");
+		}
+		
+		// 동등연사자 중 엄격한 비교 ===
+		if(numVal==="10"){
+			alert("==연산자사용:숫자10이 맞습니다.");
+		}else{
+			alert("숫자10과 같지 않다.");
+		}	
+		
+		//객체비교
+		const strObj=new String("한경");//객체로 정의
+		var strLit="한경";//리터럴 정의
+		if(strObj==strLit){
+			alert("객체와 리터럴비교: 문자열이 같다");
+		}
+		if(strObj===strLit){
+			alert("객체와 리터럴비교: 문자열이 같다");
+		}else{
+			alert("객체와 리터럴비교: 문자열이 다르다")
+		}
+	}
+	
+	function strTest04(){
+		/* 
+			문자열에서 원하는 문자열 검색하기
+			indexOf():문자열의 왼쪽 --> 오른쪽으로 검색, 검색한 단어의 첫글자 인덱스를 반환
+			lastIndexOf():오른쪽 --> 왼쪽으로 검색	
+		    만약에 검색한 단어가 존재하지 않는다면 -1을 반환. (존재여부만 알고싶을 때 )
+		*/
+		var strValue="최찬희 류주연 정재영 민시우 고도흔";
+		var inputObj=document.getElementsByName("name")[0];
+		if(inputObj.value==null||inputObj.value==""){
+			alert("입력값을 확인하세요!!");
+			//포커스 기능 
+			inputObj.focus();
+		}else if(strValue.indexOf(inputObj.value)==-1){ // 해당 이름이 존재하지 않는다면
+			alert(`${inputObj.value} 이름이 존재하지 않습니다.`);//템플릿 리터럴방식
+		}else{
+			alert(`${inputObj.value} 이름이 존재합니다.`);//템플릿 리터럴방식
+		}
+	}
+	
+	function strTest05(){
+		//substring():문자열을 시작 인덱스와 종료 인덱스로 추출
+		//split():문자열 중에 기준이 되는 요소로 나누어 배열로 반환
+		var strVal="문자열 추출하기. 관련메서드:indexOf메서드, substring()메서드.";
+		var sIdx=strVal.indexOf(":");//":"의 인덱스 구하기
+		var eIdx=strVal.lastIndexOf(".");//"."의 인덱스 구하기
+		var result=strVal.substring(sIdx+1,eIdx);
+		console.log(result);
+		var splitVal=result.split(",");//","로 문자열을 나누어 배열로 반환
+		alert(`${splitVal[0]}/${splitVal[1]}/길이값:${splitVal.length}`);
+	}
+	
+	
+	var count=6;//초기 제한 개수 정의(전역변수)
+	
+	function strTest06(){
+		//문제:입력 키워드 최대 개수는 6개로 제한 --> 7이상 입력되면 안된다고 alert로 경고하기
+		//prop변수에 "사과,수박,바나나" 저장되면 --> "<br/>키워드:사과<br/>키워드:수박<br/>키워드:바나나"
+		var prop=prompt("쉼표로 구분하여 키워드를 입력하세요", "예시:사과,수박,바나나");
+		console.log(prop);
+		
+		//문자열을 자르면 배열을 반환한다.
+		var propArray=prop.split(",");
+		console.log(propArray);
+		
+		if(propArray.length>count){//제한 개수를 확인(배열의 길이를 통해 키워드 개수를 알 수 있다.)
+			alert(count+"개까지만 입력 가능합니다.");
+		}else{
+			//자른 문자열을 "<br/>키워드:사과<br/>키워드:수박<br/>키워드:바나나" 형식으로 만든다
+	// 		var propVal="<br/>키워드:"+propArray[0]+"<br/>키워드:"+propArray[1];(X)
+			var propVal="";
+			for (var i = 0; i < propArray.length; i++) {
+				propVal+="<br/>키워드:"+propArray[i];
+			}
+			//만든 문자열을 span태그 내부에 출력한다.
+			var span=document.getElementById("key");
+			span.innerHTML=propVal;
+			//폰트색은 파란색으로 설정한다.
+			span.style.color="blue";
+		}
+	}
+	
+	//입력 키워드 개수 제한을 설정하는 기능
+	function numCount(btn){ // <--- 파라미터 btn은 body영역에 numCount(this): this를 통해 전달(button태그)
+		var number=document.getElementById("num");
+		count= number.value;//count전역변수에 입력값을 저장
+		number.disabled="disabled";//비활성화
+		btn.style.color="red";
+	}
+</script>
+</head>
+<body>
+<h1>Sring 객체의 사용</h1>
+<h1>문자열합치기<button onclick="strTest01()">클릭</button></h1>
+<h1>다른 자료형 합치기<button onclick="strTest02()">클릭</button></h1>
+<h1>문자열 비교하기<button onclick="strTest03()">클릭</button><span id="content"></span></h1>
+<h1>문자열 비교하기2<button onclick="strTest03_2()">클릭</button></h1>
+<h1>
+	<span>부분문자열 검색하기:</span>
+	<label>이름검색</label>
+	<input type="text" name="name"/>
+	<button onclick="strTest04()">검색</button>
+</h1>
+<h1>부분문자열 추출하기<button onclick="strTest05()">클릭</button></h1>
+<h1>키워드 나누기 <button onclick="strTest06()">클릭</button></h1>
+<fieldset>
+	<label>최대입력수:</label>
+	<input type="number" max="100" min="0"  id="num" />
+	<button  onclick="numCount(this)">설정</button>
+</fieldset>
+<span id="key"></span>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

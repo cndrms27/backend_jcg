@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jq08_클래스속성_DOM대체매서드</title>
+<script type="text/javascript" src="jquery_3.4.1.js"></script>
+<style type="text/css">
+	img{width: 300px;height: 300px;}
+	.onOffImg{display: none;}
+	.addSize{width: 400px;height: 400px;}
+</style>
+<script type = "text/javascript">
+	/*
+		class속성관련 메서드 4가지
+		- addClass(): class속성을 엘리먼트에 추가
+		- removeClass(): class속성 삭제
+		- hasClass(): class속성 존재 여부
+		- toggleCalss() : addClass()와 removeClass의 기능을 동시 구현
+	*/
+	$(function(){
+		$("#btn").click(function(){
+			$("img").toggleClass("onOffImg");
+		});
+		$("img").click(function(e){ //e.target, this : 이벤트가 발행된 요소
+			if($(this).hasClass("addSize")){
+				$(this).removeClass("addSize");
+			}else{
+				$(this).addClass("addSize");
+			}
+		});
+		
+		//엘리먼트 대체 메서드
+		//타켓 요소를 새로운 요소로 대체하는 메서드 2가지
+		// -replaceWith() 기능은 동일하고 작성방법이 다르다.
+		// -replaceAll()
+		$("#btn2").click(function(){
+			//$("div > p").replaceWith("<strong>요소 바꾸기</strong>");
+			$("<strong>요소 바꾸기</strong>").replaceAll("div > p");
+		});
+	});
+</script>
+</head>
+<body>
+	<button id="btn">이미지켜고끄기</button>
+	<img src="../js/img/0.jpg"/>
+	<img src="../js/img/0.jpg"/>
+	<img src="../js/img/0.jpg"/>
+	<img src="../js/img/0.jpg"/>
+	<hr/>
+	<div>
+		<p>DOM대체 메서드</p>
+	</div>
+	<button id="btn2">바꾸기</button>
+</body>
+</html>

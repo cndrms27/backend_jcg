@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	/*타입 선택자*/
+	p{
+		width: 800px;
+		background-color: orange;
+	}
+	strong{
+		color: pink;
+	}
+	
+	/*ID선택자*/
+	#a{
+		background-color: yellow;
+	}
+	#b{
+		color: red;
+	}
+	/*class선택자*/
+	.p{font-size: 25px;}
+	
+	/*자식선택자*/
+	#container1 #a > strong{
+		color: red;
+	}
+	
+	/*인접선택자*/
+	#container1 #c + p{ /*인접한 요소 하나만 선택*/
+		color: white;
+	}
+	#container2 #c ~ p{ /*인접한 요소 다음으로 계속 선택*/
+		color: rgb(255, 255, 0);
+	}
+	/*속성선택자*/
+	#container2 p[class]{ /*속성이 존재하는지 여부로 선택*/
+		background-color: green;
+	}
+	#container2 h1[title='기사의 제목입니다.']{
+		background-color: blueviolet;
+	}
+	/*가상선택자*/
+	a:link{
+		color: aqua;
+	}
+	a:visited{
+		color: brown;
+	}
+	a:active{
+		color: chartreuse;
+	}
+	#container2 p:hover{
+		background-color: yellow;
+		cursor: pointer;
+		width: 500px;
+	}
+	/*수도클래스선택자*/
+	#container3 p:first-letter{
+		font-size: 40px;
+	}
+	#container3 p:first-line{
+		color: blue;
+	}
+	#container3 p:first-child{
+		background-color: greenyellow;
+	}
+	#container3 div > p:after{
+		content: "뒤에 가상의 요소가 있음";
+		color: red;
+	}
+</style>
+</head>
+<body>
+<div id="container1">
+	<h1 id="a">김기현 "<strong>쌍방울</strong>과 인연은 내의 입은 것뿐이라던 이재명…새빨간 거짓말"</h1>
+	<h1>김기현 "<strong>쌍방울</strong>과 인연은 내의 입은 것뿐이라던 이재명…새빨간 거짓말"</h1>
+	<p>
+	김기현 국민의힘 대표는 이재명 더불어민주당 대표가 '<strong id="b">쌍방울</strong>과 인연이라면 내의 사 입은 
+	것밖에 없다'고 발언한 것을 두고 "새빨간 거짓말이었나"라고 비판했다.
+	</p>
+	<p class="p" id="c">
+	김 대표는 28일 최고위원회의에서 "조폭과 깡패를 조폭이라고 깡패라고 말하지 못하고 
+	조폭 눈치 보면서 전전긍긍하는 당 대표와 그를 맹종하는 인물들이 지도부가 돼 있는 정
+	당을 어떻게 정상적인 공당이라고 할 수 있겠나"라며 이같이 말했다.
+	</p>
+	<p class="p">
+	이 대표의 쌍방울의 불법 대북 송금 의혹 연루, 김성태 전 쌍방울 회장의 조직폭력배(
+	조폭) 출신설, 지난 1월 이 대표가 김 전 회장과의 친분을 부인하면서 "내의 사
+	입은 것밖에 없다"고 발언한 것 등을 싸잡아 비판한 것이다.
+	</p>
+</div>
+<hr/>
+<div id="container2">
+	<h1 id="a">김기현 "<strong>쌍방울</strong>과 인연은 내의 입은 것뿐이라던 이재명…새빨간 거짓말"</h1>
+	<h1 title="기사의 제목입니다.">김기현 "<strong>쌍방울</strong>과 인연은 내의 입은 것뿐이라던 이재명…새빨간 거짓말"</h1>
+	<p>
+	김기현 국민의힘 대표는 이재명 더불어민주당 대표가 '<strong id="b">쌍방울</strong>과 인연이라면 내의 사 입은 
+	것밖에 없다'고 발언한 것을 두고 "새빨간 거짓말이었나"라고 비판했다.
+	</p>
+	<p class="p" id="c">
+	김 대표는 28일 최고위원회의에서 "조폭과 깡패를 조폭이라고 깡패라고 말하지 못하고 
+	조폭 눈치 보면서 전전긍긍하는 당 대표와 그를 맹종하는 인물들이 지도부가 돼 있는 정
+	당을 어떻게 정상적인 공당이라고 할 수 있겠나"라며 이같이 말했다.
+	</p>
+	<p class="p">
+	이 대표의 쌍방울의 불법 대북 송금 의혹 연루, 김성태 전 쌍방울 회장의 조직폭력배(
+	조폭) 출신설, 지난 1월 이 대표가 김 전 회장과의 친분을 부인하면서 "내의 사
+	입은 것밖에 없다"고 발언한 것 등을 싸잡아 비판한 것이다.
+	</p>
+	<p>
+	이 대표의 쌍방울의 <a href="https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=%EB%B6%88%EB%B2%95">불법</a> 대북 송금 의혹 연루, 김성태 전 쌍방울 회장의 조직폭력배(
+	조폭) 출신설, 지난 1월 이 대표가 김 전 회장과의 친분을 부인하면서 "내의 사
+	입은 것밖에 없다"고 발언한 것 등을 싸잡아 비판한 것이다.
+	</p>
+</div>
+<hr/>
+<div id="container3">
+	<p>자식요소중에서 첫번째요소가 p태그인 요소를 선택한다.</p>
+	<h1 id="a">김기현 "<strong>쌍방울</strong>과 인연은 내의 입은 것뿐이라던 이재명…새빨간 거짓말"</h1>
+	<h1 title="기사의 제목입니다.">김기현 "<strong>쌍방울</strong>과 인연은 내의 입은 것뿐이라던 이재명…새빨간 거짓말"</h1>
+	<div>
+		<p>
+		김기현 국민의힘 대표는 이재명 더불어민주당 대표가 '<strong id="b">쌍방울</strong>과 인연이라면 내의 사 입은 
+		것밖에 없다'고 발언한 것을 두고 "새빨간 거짓말이었나"라고 비판했다.
+		</p>
+		<p class="p" id="c">
+		김 대표는 28일 최고위원회의에서 "조폭과 깡패를 조폭이라고 깡패라고 말하지 못하고 
+		조폭 눈치 보면서 전전긍긍하는 당 대표와 그를 맹종하는 인물들이 지도부가 돼 있는 정
+		당을 어떻게 정상적인 공당이라고 할 수 있겠나"라며 이같이 말했다.
+		</p>
+		<p class="p">
+		이 대표의 쌍방울의 불법 대북 송금 의혹 연루, 김성태 전 쌍방울 회장의 조직폭력배(
+		조폭) 출신설, 지난 1월 이 대표가 김 전 회장과의 친분을 부인하면서 "내의 사
+		입은 것밖에 없다"고 발언한 것 등을 싸잡아 비판한 것이다.
+		</p>
+		<p>
+		이 대표의 쌍방울의 <a href="https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=%EB%B6%88%EB%B2%95">불법</a> 대북 송금 의혹 연루, 김성태 전 쌍방울 회장의 조직폭력배(
+		조폭) 출신설, 지난 1월 이 대표가 김 전 회장과의 친분을 부인하면서 "내의 사
+		입은 것밖에 없다"고 발언한 것 등을 싸잡아 비판한 것이다.
+		</p>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css04_font</title>
+<style type="text/css">
+	#p1{
+		font-size: 20px;
+		font-weight: bold;
+		font-style: italic;
+		font-variant: small-caps;
+		line-height: 50px;
+		font-family: "맑은 고딕" "굴림";
+	}
+	h1{
+		background-color: yellow;
+		height: 200px;
+		text-align: center;
+		/*vertical-align: middle;*/
+		line-height: 200px;
+	}
+	/*
+		1 font: [font-weight font-style font-variant]
+		2 font: [font-size/line-height]
+		3 font: [font-family]
+		--> font: 1 2 3 순으로 작성해야함
+		p{font : font-style fonr-size/line-height font-family}
+	*/
+	#p2{
+		font:bold italic small-caps 20px/50px '맑은고딕';
+	}
+</style>
+</head>
+<body>
+<h1>폰트 관련 속성</h1>
+<p id="p1">abc
+	이 신임 위원장은 이날 취임사를 통해 "방송과 언론이 잃어버린 신뢰를 되찾을 수 
+	있도록 공정한 미디어 생태계를 복원하는 것이 시급한 과제"라며 공영방송의 구조와 
+	체질을 획기적으로 개혁하겠다고 강조했다.
+</p>
+<p id="p2">
+	취임식 직후엔 전체회의를 열고 '방송문화진흥회 보궐이사 임명에 관한 건'과 '
+	한국교육방송공사 보궐이사 임명에 관한 건'을 의결했다.
+</p>
+</body>
+</html>
